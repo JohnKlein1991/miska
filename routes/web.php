@@ -12,3 +12,9 @@
 */
 
 Route::get('/', 'SiteController@index');
+Route::get('/contacts', function (){
+    return view('site.contacts');
+});
+Route::get('/delivery', function (){
+    return view('site.delivery');
+});

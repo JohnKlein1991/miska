@@ -1,4 +1,4 @@
-@include('header')
+@include('layouts.header')
 <div class="card">
     <img src="{{ asset('images/main_miska.png') }}" class="card-img-top" alt="...">
 </div>
@@ -37,4 +37,4 @@
         </div>
     </div>
 </div>
-@include('footer')
+@include('layouts.footer')
