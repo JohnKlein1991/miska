@@ -15,7 +15,9 @@ class CreateGoodsTable extends Migration
     {
         Schema::create('goods', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('title');
+            $table->integer('price');
+            $table->string('category');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateGoodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('goods');
+        Schema::drop('goods');
     }
 }
