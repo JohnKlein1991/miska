@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', 'SiteController@index');
+Route::get('/', 'SiteController@index')
+    ->name('main');
 Route::get('/contacts', function (){
     return view('site.contacts');
-});
+})->name('contacts');
 Route::get('/delivery', function (){
     return view('site.delivery');
-});
+})->name('delivery');
+
+Route::get('/goods/item/{id}','Site\GoodsController@showItem')->name('goods.item');
+Route::get('/goods/group/{category}','Site\GoodsController@showCategory')->name('goods.category');

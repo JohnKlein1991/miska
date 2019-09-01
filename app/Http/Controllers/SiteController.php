@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\GoodsModel;
 use Illuminate\Support\Facades\DB;
 
-class SiteController
+class SiteController extends Controller
 {
     public function index()
     {

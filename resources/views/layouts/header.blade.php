@@ -21,22 +21,15 @@
 </head>
 <body>
 <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Миска счастья') }}
-                </a>
-            </div>
-        </nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <a class="navbar-brand" href="#">Главная</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <a class="navbar-brand" href="{{ route('main') }}">Главная</a>
 
-            <a class="navbar-brand" href="#">Контакты</a>
+        <a class="navbar-brand" href="{{ route('contacts') }}">Контакты</a>
 
-            <a class="navbar-brand" href="#">Корзина</a>
+        <a class="navbar-brand" href="#">Корзина</a>
 
-            <a class="navbar-brand" href="#">Оформление заказа</a>
+        <a class="navbar-brand" href="#">Оформление заказа</a>
 
-            <a class="navbar-brand" href="#">Условия доставки</a>
-        </nav>
+        <a class="navbar-brand" href="{{ route('delivery') }}">Условия доставки</a>
+    </nav>
 </div>
