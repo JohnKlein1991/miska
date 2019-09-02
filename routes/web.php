@@ -20,5 +20,15 @@ Route::get('/delivery', function (){
     return view('site.delivery');
 })->name('delivery');
 
+
+
+Route::get('/add-to-cart/{id}', 'Site\CartController@addToCart')->name('cart.add');
+Route::get('/remove-from-cart/{id}', 'Site\CartController@removeFromCart')->name('cart.remove');
+Route::get('/remove-all-by-id-from-cart/{id}', 'Site\CartController@removeAllByIdFromCart')->name('cart.removeAllById');
+Route::get('/show-cart', 'Site\CartController@showCart')->name('cart.show');
+
+Route::get('/order-form', 'Site\OrderController@showForm')->name('order.form');
+Route::post('/order-form', 'Site\OrderController@placeOrder')->name('order.place');
+
 Route::get('/goods/item/{id}','Site\GoodsController@showItem')->name('goods.item');
 Route::get('/goods/group/{category}','Site\GoodsController@showCategory')->name('goods.category');
