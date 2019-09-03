@@ -13,7 +13,7 @@
                         <div class="card" style="width: 18rem;">
                             <img src="{{ asset('images/default_category.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <a href="{{ route('goods.category', ['category' => $group->category]) }}" class="card-text">{{ $group->category }} ({{ $group->count }})</a>
+                                <a href="{{ route('goods.category', ['category' => $group->category_id]) }}" class="card-text">{{ $group->category_id }} ({{ $group->count }})</a>
                             </div>
                         </div>
                     </div>

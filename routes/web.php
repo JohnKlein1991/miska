@@ -32,3 +32,31 @@ Route::post('/order-form', 'Site\OrderController@placeOrder')->name('order.place
 
 Route::get('/goods/item/{id}','Site\GoodsController@showItem')->name('goods.item');
 Route::get('/goods/group/{category}','Site\GoodsController@showCategory')->name('goods.category');
+
+Route::group(['namespace' => 'Site\Admin', 'prefix' => 'admin'], function (){
+   return Route::resource('product', 'ProductController')
+       ->names('admin.products')
+       ->middleware('auth');
+});
+Route::get('/admin', 'Site\Admin\ProductController@index')->middleware('auth');
+
+Route::group(['namespace' => 'Site\Admin', 'prefix' => 'admin'], function (){
+    return Route::resource('category', 'CategoryController')->names('admin.category')->except('destroy')
+        ->middleware('auth');
+});
+
+Route::group(['namespace' => 'Site\Admin', 'prefix' => 'admin'], function (){
+    $methods = [
+        'index',
+        'show',
+        'destroy'
+    ];
+    return Route::resource('order', 'OrderController')
+        ->names('admin.order')
+        ->only($methods)
+        ->middleware('auth');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

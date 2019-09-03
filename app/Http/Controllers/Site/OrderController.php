@@ -15,7 +15,7 @@ class OrderController extends Controller
     public function showForm()
     {
         if (!Session::has('cart')) {
-            return;
+            return redirect()->route('main');
         }
         $oldCart = Session::get('cart');
         $cart = new CartModel($oldCart);
@@ -32,7 +32,7 @@ class OrderController extends Controller
         $oldCart = Session::get('cart');
         $cart = new CartModel($oldCart);
         $order = new OrderModel();
-        $order->cart = serialize($cart);
+        $order->cart = base64_encode(serialize($cart));
         $order->name = $request->input('name');
         $order->phone = $request->input('phone');
         $order->address = $request->input('address');

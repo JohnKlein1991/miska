@@ -17,7 +17,7 @@ class GoodsController extends Controller
 
     public function showCategory($category)
     {
-        $models = GoodsModel::where('category', $category)->get();
+        $models = GoodsModel::where('category_id', $category)->get();
         return view('site.goods.category', compact('models', 'category'));
     }
 }
