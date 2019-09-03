@@ -2,10 +2,10 @@
 @include('site.admin.layouts.messages')
 
 @if($product->exists)
-    <form method="post" action="{{ route('admin.products.update', $product->id) }}">
+    <form method="post" enctype="multipart/form-data" action="{{ route('admin.products.update', $product->id) }}">
         @method('PATCH')
         @else
-            <form method="post" action="{{ route('admin.products.store') }}">
+            <form method="post" enctype="multipart/form-data" action="{{ route('admin.products.store') }}">
                 @endif
                 @csrf
                 <div class="container">
@@ -61,6 +61,20 @@
                                                                 </option>
                                                             @endforeach
                                                         </select>
+                                                    </div>
+
+                                                    <img src="{{ $product->img_path ? asset('storage/'.$product->img_path) : asset('storage/images/default_goods.jpg') }}"
+                                                         class="card-img-top w-25"
+                                                         alt="..."
+                                                    >
+
+                                                    <div class="form-group">
+                                                        <label for="image">Картинка</label>
+                                                        <input type="file"
+                                                               id="image"
+                                                               name="image"
+                                                               class="form-control"
+                                                        >
                                                     </div>
                                                 </div>
                                             </div>

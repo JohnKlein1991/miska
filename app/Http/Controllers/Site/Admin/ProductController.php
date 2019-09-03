@@ -42,6 +42,10 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        if($request->file('image')){
+            $imgPath = $request->file('image')->store('images', 'public');
+            $data['img_path'] = $imgPath;
+        }
         $item = new GoodsModel($data);
         $result = $item->save();
         if($result){
@@ -96,6 +100,10 @@ class ProductController extends Controller
         }
 
         $data = $request->all();
+        if($request->file('image')){
+            $imgPath = $request->file('image')->store('images', 'public');
+            $data['img_path'] = $imgPath;
+        }
         $result = $item->fill($data)->save();
         if($result){
             return redirect()

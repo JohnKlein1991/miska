@@ -2,10 +2,10 @@
 @include('site.admin.layouts.messages')
 
 @if($category->exists)
-    <form method="post" action="{{ route('admin.category.update', $category->id) }}">
+    <form method="post" enctype="multipart/form-data" action="{{ route('admin.category.update', $category->id) }}">
         @method('PATCH')
         @else
-            <form method="post" action="{{ route('admin.category.store') }}">
+            <form method="post" enctype="multipart/form-data" action="{{ route('admin.category.store') }}">
                 @endif
                 @csrf
                 <div class="container">
@@ -37,6 +37,19 @@
                                                         >
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <img src="{{ $category->img_path ? asset('storage/'.$category->img_path) : asset('storage/images/default_category.jpg') }}"
+                                                 class="card-img-top w-25"
+                                                 alt="..."
+                                            >
+
+                                            <div class="form-group">
+                                                <label for="image">Картинка</label>
+                                                <input type="file"
+                                                       id="image"
+                                                       name="image"
+                                                       class="form-control"
+                                                >
                                             </div>
                                         </div>
                                         <div class="card-footer">

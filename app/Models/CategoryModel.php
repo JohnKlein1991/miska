@@ -7,13 +7,14 @@ class CategoryModel extends Model
 {
     protected $table = 'categories';
 
-    protected $fillable = array('id', 'name');
+    protected $fillable = array('id', 'name', 'img_path');
 
     public function getAllWithPaginate($count = 10)
     {
         $fields = [
             'id',
-            'name'
+            'name',
+            'img_path'
         ];
         $result = $this
             ->select($fields)
@@ -25,7 +26,8 @@ class CategoryModel extends Model
     {
         $fields = [
             'id',
-            'name'
+            'name',
+            'img_path'
         ];
         $result = $this
             ->select($fields)

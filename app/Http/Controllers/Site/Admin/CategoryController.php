@@ -41,6 +41,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        if($request->file('image')){
+            $imgPath = $request->file('image')->store('images', 'public');
+            $data['img_path'] = $imgPath;
+        }
         $item = new CategoryModel($data);
         $result = $item->save();
         if($result){
@@ -83,6 +87,10 @@ class CategoryController extends Controller
         }
 
         $data = $request->all();
+        if($request->file('image')){
+            $imgPath = $request->file('image')->store('images', 'public');
+            $data['img_path'] = $imgPath;
+        }
         $result = $item->fill($data)->save();
         if($result){
             return redirect()

@@ -17,7 +17,8 @@ class CreateGoodsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->integer('price');
-            $table->string('category');
+            $table->string('category_id');
+            $table->string('img_path');
         });
     }
 

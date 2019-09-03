@@ -8,7 +8,7 @@ class GoodsModel extends Model
 {
     protected $table = 'goods';
 
-    protected $fillable = array('id', 'title', 'price', 'category_id');
+    protected $fillable = array('id', 'title', 'price', 'category_id', 'img_path');
 
     public function category()
     {
@@ -21,7 +21,8 @@ class GoodsModel extends Model
             'id',
             'title',
             'price',
-            'category_id'
+            'category_id',
+            'img_path'
         ];
         $result = $this
             ->select($fields)
